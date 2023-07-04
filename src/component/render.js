@@ -1,7 +1,7 @@
 import React from "react";
 
-const Render = ({ htmlString }) => {
+const MyComponent = ({ htmlString }) => {
   return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
 };
 
-export default Render;
+export default MyComponent;
