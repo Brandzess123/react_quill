@@ -30,52 +30,46 @@
 // };
 
 // export default MyEditor;
-
-import React, { useState } from "react";
-import { convertToRaw, EditorState } from "draft-js";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "draft-js/dist/Draft.css";
-import draftToHtml from "draftjs-to-html";
+import React, { Component } from "react";
+// import { Editor } from "react-draft-wysiwyg";
 import dynamic from "next/dynamic";
 const Editor = dynamic(
   () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
   { ssr: false }
 );
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import Render from "../component/render";
+import { EditorState, convertToRaw } from "draft-js";
 
-const TextEditor = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-  return (
-    <>
-      <div className="container my-5">
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import draftToHtml from "draftjs-to-html";
+
+export default class TextEditor extends Component {
+  state = {
+    editorState: EditorState.createEmpty(),
+  };
+
+  onEditorStateChange = (editorState) => {
+    this.setState({
+      editorState,
+    });
+  };
+
+  render() {
+    const { editorState } = this.state;
+    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    return (
+      <div>
         <Editor
-          defaultEditorState={editorState}
-          onEditorStateChange={setEditorState}
+          editorState={editorState}
           toolbarClassName="toolbarClassName"
           wrapperClassName="wrapperClassName"
           editorClassName="editorClassName"
+          onEditorStateChange={this.onEditorStateChange}
         />
-      </div>
-
-      <div className="border code-view mt-[120px] h-[500px]">
         <textarea
-          className="w-full h-full text-area"
           disabled
           value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-        />
+        ></textarea>
       </div>
-
-      <div className="border code-view mt-[120px] h-[500px]">
-        <Render
-          htmlString={draftToHtml(
-            convertToRaw(editorState.getCurrentContent())
-          )}
-        />
-      </div>
-    </>
-  );
-};
-
-export default TextEditor;
+    );
+  }
+}
