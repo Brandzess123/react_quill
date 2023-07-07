@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import "./styles.css";
 import Editor from "../../component/Editor";
+//
 import Render from "../../component/render";
 import MyComponent from "../../component/render";
 export default function App() {
   const [editorLoaded, setEditorLoaded] = useState(false);
   const [data, setData] = useState("");
   // hello
+
   useEffect(() => {
     setEditorLoaded(true);
   }, []);

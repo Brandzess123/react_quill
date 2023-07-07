@@ -1,36 +1,3 @@
-// import React, { useState } from "react";
-// import { convertToRaw, EditorState } from "draft-js";
-// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-// import "draft-js/dist/Draft.css";
-// import draftToHtml from "draftjs-to-html";
-// import dynamic from "next/dynamic";
-// const Editor = dynamic(
-//   () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
-//   { ssr: false }
-// );
-// const MyEditor = () => {
-//   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-//   return (
-//     <div className="App">
-//       <header className="App-header">Rich Text Editor Example</header>
-//       <Editor
-//         defaultEditorState={editorState}
-//         onEditorStateChange={setEditorState}
-//       />
-//       <div className="code-view">
-//         <p>HTML View </p>
-//         <textarea
-//           className="text-area"
-//           disabled
-//           value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MyEditor;
-
 import React, { useState } from "react";
 import { convertToRaw, EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -51,6 +18,16 @@ const TextEditor = () => {
     <>
       <div className="container my-5">
         <Editor
+          // toolbarOnFocus //ẩn toolbar khi cần thiết
+          toolbar={{
+            // inline: { inDropdown: true },
+            // list: { inDropdown: true },
+            // textAlign: { inDropdown: true },
+            link: { inDropdown: true },
+            history: { inDropdown: true },
+            image: { urlEnabled: true },
+            image: { uploadEnabled: true },
+          }}
           defaultEditorState={editorState}
           onEditorStateChange={setEditorState}
           toolbarClassName="toolbarClassName"

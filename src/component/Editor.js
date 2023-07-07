@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-
 function Editor({ onChange, editorLoaded, name, value }) {
   const editorRef = useRef();
   const { CKEditor, ClassicEditor } = editorRef.current || {};
 
   useEffect(() => {
+    //cái này là import trong môi trường không sử dụng import như common js hoặc nodejs
     editorRef.current = {
       CKEditor: require("@ckeditor/ckeditor5-react").CKEditor, // v3+
       ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
