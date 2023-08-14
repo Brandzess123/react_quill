@@ -1,11 +1,12 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import styles from "../../styles/render.module.css";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import Render from "../../component/render";
-import "../styles/test.css";
 const ImageResize = dynamic(() => import("quill-image-resize-module-react"), {
   ssr: false,
 });
+
 const Quill = dynamic(() => import("react-quill").then((mod) => mod.Quill), {
   ssr: false,
 });
@@ -57,7 +58,7 @@ function App() {
   console.log(value);
   return (
     <>
-      <div className="w-[80%] mx-auto mt-[20px] h-[300px]">
+      <div className="w-[80%] overflow-scroll mx-auto h-[700px]">
         <ReactQuill
           modules={modules}
           theme="snow"
@@ -67,16 +68,25 @@ function App() {
       </div>
 
       <div className="mt-[200px] border text-base test">
-        {/* <h2>This is the result</h2>
-        {value} */}
-        {/* <ReactQuill
-          value={value}
-          readOnly={true}
-          theme={"bubble"}
-          className="test"
-        /> */}
+        <div className="my-[200px]">
+          {" "}
+          <h2 className="">This is the result</h2>
+          {value}
+        </div>
 
-        <Render htmlString={value} />
+        <div className="w-[80%] mx-auto border">
+          <div className={styles.normal}>
+            {/* <div dangerouslySetInnerHTML={{ __html: value }} /> */}
+            <ReactQuill
+              value={value}
+              readOnly={true}
+              theme={"bubble"}
+              className="test"
+            />
+          </div>
+        </div>
+
+        {/* <Render htmlString={value} /> */}
       </div>
     </>
   );

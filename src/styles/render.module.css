@@ -1,0 +1,36 @@
+.normal {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .normal h1 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .normal p {
+    font-size: 18px;
+  }
+
+  .normal strong {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .normal u {
+    text-decoration-color: #f47938;
+    text-underline-offset: 7px;
+  }
+
+  .normal u:hover {
+    background-color: #f47938;
+    text-underline-offset: 0px;
+    text-decoration-color: none;
+  }
+
+  .normal img {
+    margin: 0px auto;
+    width: full;
+    object-fit: cover;
+    /* max-height: 100%; */
+    
+  }
