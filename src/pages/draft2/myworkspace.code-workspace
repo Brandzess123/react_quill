@@ -1,11 +1,29 @@
 {
-	"folders": [
-		{
-			"path": "../../../../../dmca"
-		},
-		{
-			"path": "../../../.."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "../../../../../dmca"
+    },
+    {
+      "path": "../../../.."
+    },
+    {
+      "path": "../../../../../larklogin"
+    },
+    {
+      "path": "../../../../../project"
+    },
+    {
+      "path": "D:/ĐẶNG MINH HIẾU/ghi chu"
+    },
+    {
+      "path": "../../../../../../../Threejs/threejs"
+    },
+    {
+      "path": "../../../../.."
+    },
+    {
+      "path": "../../../../../../../node project/rain-puppet"
+    }
+  ],
+  "settings": {}
 }

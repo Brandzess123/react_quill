@@ -1,0 +1,13 @@
+.test {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .test h1 {
+    font-size: bold;
+    color: red;
+  }
+
+  .test p {
+    font-size: large;
+    color: blue;
+  }
