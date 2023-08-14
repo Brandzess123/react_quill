@@ -1,7 +1,9 @@
 import React from "react";
 
 const MyComponent = ({ htmlString }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
+  return (
+    <div className="w-[50%]" dangerouslySetInnerHTML={{ __html: htmlString }} />
+  );
 };
 
 export default MyComponent;
